@@ -42,12 +42,13 @@
 
 
 
-condition = True
 
-yes_or_no = input("Do You want to add a contact name to the existing contacts. Press Y or N : ")
+# add a contact
+def add():
+    yes_or_no = input("Do You want to add a contact name to the existing contacts. Press Y or N : ")
 
-while condition:
-    if yes_or_no == 'y' or 'Y':
+
+    if yes_or_no == 'y' or yes_or_no == 'Y':
         name = input('Enter the Name : ')
         with open ('contacts-data/contacts_name.xls', 'a') as f:
             f.write(f'{name} \n')
@@ -58,8 +59,29 @@ while condition:
         with open ('contacts-data/contacts_email.xls', 'a') as f:
             f.write(f'{email}\n')
 
-        condition = False
     else:
-        condition = False
+        print('OK Thank You!!!')
+
+
+
+
+yes_or_no = input("Do You want to Modify a contact name to the existing contacts. Press Y or N : ")
+
+
+if yes_or_no == 'y' or yes_or_no == 'Y':
+    name = input('Enter the Name : ')
+    with open ('contacts-data/contacts_name.xls', 'r') as f:
+        print(f.readlines()[3].replace('Doug Lyod', 'Fantastic'))
+        print(f.read())
+    # number = input('Enter the Phone Number : ')
+    # with open ('contacts-data/contacts_numbers.xls', 'r+') as f:
+    #     f.write(f'{number}\n')
+    # email = input('Enter the email : ')
+    # with open ('contacts-data/contacts_email.xls', 'r+') as f:
+    #     f.write(f'{email}\n')
+
+else:
+    print('OK Thank You!!!')
+
 
 
