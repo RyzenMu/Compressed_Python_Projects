@@ -63,7 +63,7 @@ def add():
         print('OK Thank You!!!')
 
 
-
+# modifying the existing file
 
 yes_or_no = input("Do You want to Modify a contact name to the existing contacts. Press Y or N : ")
 
@@ -71,8 +71,11 @@ yes_or_no = input("Do You want to Modify a contact name to the existing contacts
 if yes_or_no == 'y' or yes_or_no == 'Y':
     name = input('Enter the Name : ')
     with open ('contacts-data/contacts_name.xls', 'r') as f:
-        print(f.readlines()[3].replace('Doug Lyod', 'Fantastic'))
-        print(f.read())
+        names_list = f.readlines()
+        if name in names_list:
+            print('Yes')
+
+       
     # number = input('Enter the Phone Number : ')
     # with open ('contacts-data/contacts_numbers.xls', 'r+') as f:
     #     f.write(f'{number}\n')
