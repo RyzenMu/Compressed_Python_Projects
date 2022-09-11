@@ -116,4 +116,10 @@ def mod(name):
         print('OK Thank You!!!')
 
 
+def delete():
+    pass
+
+
+
+
 
