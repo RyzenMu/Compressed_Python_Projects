@@ -120,6 +120,45 @@ def delete():
     pass
 
 
+with open ('contacts-data/contacts_name.xls', 'r') as f:
+    names_list = f.readlines()
+    name = 'Bruce\n'
+    for i in range(len(names_list)):
+        if name == names_list[i]:
+            print(i)
+            names_list.pop(i)
+            with open ('contacts-data/contacts_name.xls', 'w') as w:
+                for name in names_list:
+                    w.write(name)
+            break
+    
+print(names_list)
+
+
+with open ('contacts-data/contacts_numbers.xls', 'r') as f:
+    numbers_list = f.readlines()
+    print(numbers_list)
+    print(i)
+    numbers_list.pop(i)
+    with open ('contacts-data/contacts_numbers.xls', 'w') as w:
+        for number in numbers_list:
+            w.write(number)
+    
+        
+print(numbers_list)
+
+
+with open ('contacts-data/contacts_numbers.xls', 'r') as f:
+    numbers_list = f.readlines()
+    print(numbers_list)
+    print(i)
+    numbers_list.pop(i)
+    with open ('contacts-data/contacts_numbers.xls', 'w') as w:
+        for number in numbers_list:
+            w.write(number)
+    
+        
+print(numbers_list)
 
 
 
