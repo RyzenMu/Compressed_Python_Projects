@@ -35,7 +35,7 @@ with open ('contacts-data/contacts_email.xls', 'w') as f:
 
 # Creating a file object and reading the contents in it
 contacts_name_file = open('contacts-data/contacts_name.xls')
-print(contacts_name_file.readlines(200))
+# print(contacts_name_file.readlines(200))
 
 # Once a file is opened it must be closed
 contacts_name_file.close()
@@ -64,7 +64,7 @@ def add():
 
 
 # modifying the existing file
-def mod(name):
+def mod():
     yes_or_no = input("Do You want to Modify a contact name to the existing contacts. Press Y or N : ")
 
     if yes_or_no == 'y' or yes_or_no == 'Y':
@@ -117,48 +117,53 @@ def mod(name):
 
 
 def delete():
-    pass
-
-
-with open ('contacts-data/contacts_name.xls', 'r') as f:
-    names_list = f.readlines()
-    name = 'Bruce\n'
-    for i in range(len(names_list)):
-        if name == names_list[i]:
-            print(i)
-            names_list.pop(i)
-            with open ('contacts-data/contacts_name.xls', 'w') as w:
-                for name in names_list:
-                    w.write(name)
-            break
     
-print(names_list)
-
-
-with open ('contacts-data/contacts_numbers.xls', 'r') as f:
-    numbers_list = f.readlines()
-    print(numbers_list)
-    print(i)
-    numbers_list.pop(i)
-    with open ('contacts-data/contacts_numbers.xls', 'w') as w:
-        for number in numbers_list:
-            w.write(number)
-    
+    with open ('contacts-data/contacts_name.xls', 'r') as f:
+        names_list = f.readlines()
+        name = 'Bruce\n'
+        for i in range(len(names_list)):
+            if name == names_list[i]:
+                print(i)
+                names_list.pop(i)
+                with open ('contacts-data/contacts_name.xls', 'w') as w:
+                    for name in names_list:
+                        w.write(name)
+                break
         
-print(numbers_list)
+    print(names_list)
 
 
-with open ('contacts-data/contacts_numbers.xls', 'r') as f:
-    numbers_list = f.readlines()
+    with open ('contacts-data/contacts_numbers.xls', 'r') as f:
+        numbers_list = f.readlines()
+        print(numbers_list)
+        print(i)
+        numbers_list.pop(i)
+        with open ('contacts-data/contacts_numbers.xls', 'w') as w:
+            for number in numbers_list:
+                w.write(number)
     print(numbers_list)
-    print(i)
-    numbers_list.pop(i)
-    with open ('contacts-data/contacts_numbers.xls', 'w') as w:
-        for number in numbers_list:
-            w.write(number)
-    
-        
-print(numbers_list)
 
 
+    with open ('contacts-data/contacts_email.xls', 'r') as f:
+        email_list = f.readlines()
+        print(email_list)
+        print(i)
+        email_list.pop(i)
+        with open ('contacts-data/contacts_email.xls', 'w') as w:
+            for email in email_list:
+                w.write(email)
+    print(email_list)
+
+
+def contact(operator):
+    match operator:
+        case 'a':
+            add()
+        case 'm':
+            mod()
+        case 'd':
+            delete()
+
+
+contact('a')
 
