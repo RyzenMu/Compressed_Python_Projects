@@ -7,6 +7,10 @@ from bs4 import BeautifulSoup
 #import re
 import re
 
+page = requests.get('https://www.crummy.com/software/BeautifulSoup/bs4/doc/#installing-beautiful-soup')
+
+print(page)
+
 
 # get request from linked in website
 
