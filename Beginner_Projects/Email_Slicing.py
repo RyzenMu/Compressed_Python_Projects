@@ -1,11 +1,12 @@
-import time
 import requests
 from bs4 import BeautifulSoup
 
-html_page = requests.get('https://www.timesjobs.com/candidate/job-search.html?searchType=personalizedSearch&from=submit&txtKeywords=Python&txtLocation=').text
+w3_web_page = requests.get('https://www.w3schools.com/python/module_requests.asp').text
 
-# print(html_page)
+soup = BeautifulSoup(w3_web_page, 'lxml')
 
-soup = BeautifulSoup(html_page, 'lxml')
+courses = soup.findAll('a', target = '_blank')
 
-print(soup)
+for course in courses:
+
+    print(course)
