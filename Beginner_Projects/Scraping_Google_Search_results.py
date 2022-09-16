@@ -5,7 +5,7 @@ google_page = requests.get('https://www.google.com/search?channel=fs&client=ubun
 
 soup = BeautifulSoup(google_page, 'lxml')
 
-results = soup.findAll('a', class_='fl')
+results = soup.findAll('a')
 
 for result in results:
     print(result.text)
