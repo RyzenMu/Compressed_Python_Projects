@@ -11,8 +11,10 @@
 
 
 #1.
+from urllib import response
 import requests
 from bs4 import BeautifulSoup
+import re
 
 
 forbes_website = requests.get('https://www.forbes.com/lists/global2000/?sh=3951212a5ac0').text
@@ -64,19 +66,25 @@ for company in company_list:
 
 
 #  6. use request and enter into 100 webpages
-# for company_website in company_websites:
-#     if company_website == 'www.saudiarabianoilcompany(saudiaramco).com':
-#         continue
-#     company_website_login = requests.get(company_website)
-#     print(company_website_login)
-
-
-for i in range(5, 100):
+no_of_companies = 0
+for i in range(1, 100):
     try:
-        company_website_login = requests.get(company_websites[i])
-        print(company_websites[i], company_website_login)
+        company_website_login = requests.get(company_websites[i]).text
+        no_of_companies += 1
+        soup = BeautifulSoup(company_website_login, 'html.parser')
+        print('------------------------------------------------------------------------')
+        print('------------------------------------------------------------------------')
+        if no_of_companies > 10:
+            break
+            
     except:
-        print(company_websites[i] + 'error - unknown')
+        print(company_websites[i] + 'error - unknown', type(company_websites[i]))
+        no_of_companies -= 1
+
+
+
+    
+
 
 
 
