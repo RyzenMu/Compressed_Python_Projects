@@ -11,6 +11,7 @@
 
 
 #1.
+from ctypes import sizeof
 from urllib import response
 import requests
 from bs4 import BeautifulSoup
@@ -72,14 +73,33 @@ for i in range(1, 100):
         company_website_login = requests.get(company_websites[i]).text
         no_of_companies += 1
         soup = BeautifulSoup(company_website_login, 'html.parser')
+        print(no_of_companies * 10 )
+        email = soup.find_all(string=re.compile('[a-zA-Z0-9]+@[a-z]+.[a-z]+'))
+        if len(email) > 20:
+            continue
+        else:
+            print(email)
         print('------------------------------------------------------------------------')
-        print('------------------------------------------------------------------------')
-        if no_of_companies > 10:
+        if no_of_companies > 100:
             break
             
     except:
         print(company_websites[i] + 'error - unknown', type(company_websites[i]))
         no_of_companies -= 1
+
+
+# data = """
+# <a> sunny is a day </a>
+# <a> sun is a star </a>
+# <a> sunday is holiday </a>
+# """
+
+# search_word = 'sunny'
+# soup = BeautifulSoup(data, 'html.parser')
+# result = soup.find_all(string=re.compile('sun'))
+
+# print(result)
+
 
 
 
