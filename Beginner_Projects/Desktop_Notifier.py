@@ -2,6 +2,13 @@
 
 import datetime
 from datetime import timedelta
+import os
 
+
+path = os.uname()
+os.mkdir('/home/a/Desktop/Compressed_Python_Projects/new-directory')
+path = os.getcwd()
+
+print(path)
 
 
