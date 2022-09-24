@@ -6,7 +6,7 @@ import os
 
 
 path = os.uname()
-os.mkdir('/home/a/Desktop/Compressed_Python_Projects/new-directory')
+os.mkdir('/home/a/Desktop/Compressed_Python_Projects/new-directory1')
 path = os.getcwd()
 
 print(path)
