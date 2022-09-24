@@ -10,5 +10,6 @@ os.mkdir('/home/a/Desktop/Compressed_Python_Projects/new-directory1')
 path = os.getcwd()
 
 print(path)
+print(path)
 
 
