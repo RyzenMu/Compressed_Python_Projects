@@ -10,3 +10,4 @@ courses = soup.findAll('a', target = '_blank')
 for course in courses:
 
     print(course)
+    print(course)
